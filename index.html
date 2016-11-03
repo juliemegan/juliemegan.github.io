@@ -1,8 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="utf-8">
 	<title>Julie Megan Rybarczyk Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+	
+		$( window ).load( function() {
+			$( '#top-00-div' ).hide();
+		});
+		
+		function openButton00() {
+			$( '#top-00-div' ).show();
+		}
+		
+		function close() {
+			$( '#top-00-div' ).hide();
+		}
+		
+		function getContent(content_type) {
+			var header = "";
+			var url = "";
+			
+			switch (content_type) {
+			case "about_me":
+				header = "about me";
+				url = "about_me.html";
+				break;
+			case "about_this_page":
+				header = "about this page";
+				url = "about_this_page.html";
+			default:
+				break;
+			}
+			
+			$( '#modal-header' ).text(header);
+			
+			$.ajax({
+				type: "POST", 
+				url: url,
+				dataType: "text",
+				error: function(xhr, textStatus, errorThrown) {
+					alert("Request Failed."
+						+ "\nxhr: " + xhr
+						+ "\ntext status: " + textStatus
+						+ "\nerror thrown: " + errorThrown
+					);
+				},
+				success: function(result_json) {
+					console.log(result_json);
+					$( '#modal-content' ).html(result_json);
+				}
+			});
+		}
+	</script>
+	
 	<style>
 		#base-00-div {
 	  		background-image: url('dark_jean_00.jpg');
@@ -53,69 +110,7 @@
 			padding: 20px;
 		}
 		
-	</style><!-- end style -->
-	
-	
-</head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet"> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-
-	$( window ).load( function() {
-		$( '#top-00-div' ).hide();
-	});
-	
-	function openButton00() {
-		$( '#top-00-div' ).show();
-	}
-	
-	function close() {
-		$( '#top-00-div' ).hide();
-	}
-	
-	function getContent(content_type) {
-		var header = "";
-		var url = "";
-		
-		switch (content_type) {
-		case "about_me":
-			header = "about me";
-			url = "about_me.html";
-			break;
-		case "about_this_page":
-			header = "about this page";
-			url = "about_this_page.html";
-		default:
-			break;
-		}
-		
-		$( '#modal-header' ).text(header);
-		
-		$.ajax({
-			type: "POST", 
-			url: url,
-			dataType: "text",
-			error: function(xhr, textStatus, errorThrown) {
-				alert("Request Failed."
-					+ "\nxhr: " + xhr
-					+ "\ntext status: " + textStatus
-					+ "\nerror thrown: " + errorThrown
-				);
-			},
-			success: function(result_json) {
-				console.log(result_json);
-				$( '#modal-content' ).html(result_json);
-			}
-		});
-		
-	}
-
-</script>
-  
+	</style><!-- end style --> 
 </head>
 
 <body>

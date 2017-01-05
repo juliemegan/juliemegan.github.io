@@ -62,8 +62,9 @@
 		function getResume() {
 			$( '#modal-header' ).text("my resume");
 			
-			var content = "<div align='center'><iframe align='center' src='https://docs.google.com/viewer?srcid=0B_gkg0-fPnKrMUhkQWE0V2lvN2M" 
-					+ "&pid=explorer&efh=false&a=v&chrome=false&embedded=true' width='580px' height='480px'></iframe></div>";
+			var content = "<div id='pdf-container' align='center'><iframe align='center' "
+				+ "src='https://docs.google.com/viewer?srcid=0B_gkg0-fPnKrMUhkQWE0V2lvN2M" 
+				+ "&pid=explorer&efh=false&a=v&chrome=false&embedded=true' width='100%' height='480px'></iframe></div>";
 				
 			$( '#modal-content' ).html(content);
 		}
@@ -128,6 +129,9 @@
     		background-size: contain;
     		background-repeat: no-repeat;
     		background-position: 50% 50%;
+		}
+		#pdf-container {
+			
 		}​
 		
 	</style><!-- end style --> 

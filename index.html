@@ -61,9 +61,13 @@
 		
 		function getResume() {
 			$( '#modal-header' ).text("my resume");
-			
+			// Use the source ID (SRCID) from the google doc from the shareable link:
+			// https://drive.google.com/file/d/SRCID/view?usp=sharing
+			// e.g.
+			// https://drive.google.com/file/d/0B_gkg0-fPnKrSmV6WkpNMHh5cUE/view?usp=sharing
+			// srcid = 0B_gkg0-fPnKrSmV6WkpNMHh5cUE
 			var content = "<div id='pdf-container' align='center'><iframe align='center' "
-				+ "src='https://docs.google.com/viewer?srcid=0B_gkg0-fPnKrMUhkQWE0V2lvN2M" 
+				+ "src='https://docs.google.com/viewer?srcid=0B_gkg0-fPnKrSmV6WkpNMHh5cUE" 
 				+ "&pid=explorer&efh=false&a=v&chrome=false&embedded=true' width='100%' height='480px'></iframe></div>";
 				
 			$( '#modal-content' ).html(content);
